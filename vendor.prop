@@ -247,6 +247,7 @@ vendor.display.disable_excl_rect=0
 vendor.display.disable_excl_rect_partial_fb=1
 vendor.display.disable_ext_anim=1
 vendor.display.disable_hw_recovery_dump=1
+<<<<<<< HEAD
 vendor.display.disable_idle_time_hdr=1
 vendor.display.disable_idle_time_video=1
 vendor.display.disable_layer_stitch=0
@@ -270,3 +271,4 @@ vendor.usb.diag.func.name=diag
 vendor.usb.use_ffs_mtp=0
 vendor.voice.path.for.pcm.voip=true
 wifi.aware.interface=wifi-aware0
+ro.hardware.gatekeeper=mdfpp
