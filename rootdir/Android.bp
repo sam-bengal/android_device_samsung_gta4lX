@@ -184,7 +184,7 @@ prebuilt_etc {
 
 // fstab
 prebuilt_etc {
-    name: "fstab.firmware",
+    name: "fstab.qcom",
     src: "etc/fstab.firmware",
     vendor: true,
 }

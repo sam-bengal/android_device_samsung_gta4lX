@@ -237,7 +237,7 @@ PRODUCT_PACKAGES += \
     install-recovery.sh \
 
 PRODUCT_PACKAGES += \
-    fstab.firmware \
+    fstab.qcom \
     init.samsung.rc \
     init.gta4l.rc \
     init.target.rc \
@@ -249,7 +249,7 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
 
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/rootdir/etc/fstab.firmware:$(TARGET_COPY_OUT_RAMDISK)/fstab.firmware
+    $(COMMON_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 
 # Sensors
 
