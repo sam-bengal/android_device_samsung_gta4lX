@@ -142,6 +142,9 @@ PRODUCT_COPY_FILES += \
 # Product characteristics
 PRODUCT_CHARACTERISTICS := tablet
 
+# Recovery
+TARGET_USES_AOSP_RECOVERY := true
+
 # Rootdir
 PRODUCT_PACKAGES += \
     init.qcom.sh \
