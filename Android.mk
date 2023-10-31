@@ -6,6 +6,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),gta4l)
+ifeq ($(TARGET_DEVICE),gta4lX)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif

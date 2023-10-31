@@ -1,4 +1,4 @@
-# Android device tree for samsung SM-T507 (gta4l)
+# Android device tree for samsung SM-T507/SM-505/SM-500 (gta4lX)
 
 ```
 #
