@@ -12,10 +12,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/lineage/config/common_full_tablet.mk)
 
 # Inherit from gta4l device
-$(call inherit-product, device/samsung/gta4l/device.mk)
+$(call inherit-product, device/samsung/gta4lX/device.mk)
 
-PRODUCT_DEVICE := gta4l
-PRODUCT_NAME := lineage_gta4l
+PRODUCT_DEVICE := gta4lX
+PRODUCT_NAME := lineage_gta4lX
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-T507
 PRODUCT_MANUFACTURER := samsung
