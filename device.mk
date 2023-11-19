@@ -12,13 +12,26 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 # Audio
 PRODUCT_PACKAGES += \
+    libalsautils \
+    libaudio_log_utils \
     android.hardware.audio.service \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio@4.0-impl \
+    android.hardware.audio@5.0-impl \
     android.hardware.audio@6.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.audio.effect@4.0-impl \
+    android.hardware.audio.effect@5.0-impl \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.soundtrigger@2.2-impl \
     audio.bluetooth.default \
     audio.r_submix.default \
+    audio.primary.default \
+    audio.primary.bengal \
     audio.usb.default
+# Atrace    
+PRODUCT_PACKAGES += \    
+  android.hardware.atrace@1.0-service    
     
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
