@@ -12,11 +12,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 # Audio
 PRODUCT_PACKAGES += \
+    android.hardware.audio.service \
     android.hardware.audio@6.0-impl \
     android.hardware.audio.effect@6.0-impl \
-    android.hardware.audio.service \
-    android.hardware.bluetooth.audio@2.0-impl \
-
+    android.hardware.soundtrigger@2.2-impl \
+    audio.bluetooth.default \
+    audio.r_submix.default \
+    audio.usb.default
+    
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(COMMON_PATH)/configs/audio/audio_effects_sec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects_sec.xml \
@@ -64,11 +67,35 @@ PRODUCT_PACKAGES += \
 # Biometrics
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.face@1.0-impl \
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.3-service.clearkey \
+    libdrmclearkeyplugin
     
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.4-service \
+    android.hardware.graphics.mapper@3.0-impl-qti-display \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
+    vendor.qti.hardware.display.allocator-service \
     android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service     
+    android.hardware.memtrack@1.0-service \
+    android.hardware.renderscript@1.0-impl \
+    libtinyxml \
+    libtinyxml2 \
+    hwcomposer.atoll \
+    gralloc.atoll \
+    memtrack.atoll \
+    libqdMetaData \
+    libdisplayconfig.qti \
+    vendor.qti.hardware.display.mapper@2.0.vendor \
+    vendor.qti.hardware.display.mapper@3.0.vendor \
+    vendor.qti.hardware.display.mapper@4.0.vendor \
+    vendor.display.config@2.0.vendor
+
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/android.hardware.graphics.composer@2.4-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.composer@2.4-service.rc  
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -77,9 +104,11 @@ PRODUCT_PACKAGES += \
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0.vendor \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
+
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/init/android.hardware.gatekeeper@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gatekeeper@1.0-service.rc
 
 # GNSS
 
@@ -91,6 +120,17 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/gps/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
     $(COMMON_PATH)/configs/gps/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
 
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.base@1.0.vendor \
+    android.hidl.manager@1.0 \
+    android.hidl.manager@1.0.vendor \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
+    libhwbinder.vendor
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
@@ -101,6 +141,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/etc/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config  \
     $(COMMON_PATH)/configs/etc/sec_config_oem:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config_oem
+    
+# Keymaster    
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.0-service    
+# Lights    
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.samsung    
 
 # Media 
 
@@ -195,6 +242,9 @@ PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/etc/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power-service-qti
 
 # Powerhint
 PRODUCT_COPY_FILES += \
@@ -252,7 +302,10 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 
 # Sensors
-
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@2.0-service.multihal \
+    android.frameworks.sensorservice@1.0
+    
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
@@ -278,6 +331,23 @@ PRODUCT_SHIPPING_API_LEVEL := 29
 PRODUCT_SOONG_NAMESPACES += \
     $(COMMON_PATH)
     
+# Telephony
+PRODUCT_PACKAGES += \
+    ims-ext-common \
+    ims_ext_common.xml \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml \
+    qti-telephony-utils \
+    qti_telephony_utils.xml \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext    
+    
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.2-service-qti    
+    
 # VNDK
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v32/arm64/arch-arm64-armv8-a/shared/vndk-sp/libhidlbase.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libhidlbase-v32.so
@@ -286,6 +356,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service.gta4l \
     vendor.qti.hardware.vibrator-impl    
+    
+# Vendor service manager
+PRODUCT_PACKAGES += \
+    vndservicemanager    
     
 # Wi-Fi    
 PRODUCT_PACKAGES += \
