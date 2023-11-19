@@ -178,6 +178,11 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
     
+# Minijail
+PRODUCT_PACKAGES += \
+    libavservices_minijail \
+    libavservices_minijail.vendor    
+    
 # Neural Networks
 PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.2.impl-qti    
