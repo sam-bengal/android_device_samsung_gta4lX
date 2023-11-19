@@ -23,9 +23,9 @@ PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="gta4ltur-user 12 SP1A.210812.016 T507JXU4CWD1 release-keys"
+    PRIVATE_BUILD_DESC="gta4ltur-user 12 SP1A.210812.016 T507JXS5CWI2 release-keys"
 
-BUILD_FINGERPRINT := samsung/gta4ltur/gta4l:11/RP1A.200720.012/T507JXU4CWD1:user/release-keys
+BUILD_FINGERPRINT := samsung/gta4ltur/gta4l:11/RP1A.200720.012/T507JXS5CWI2:user/release-keys
 
 ## Boot Animation
 TARGET_SCREEN_HEIGHT := 2000
